@@ -12,5 +12,5 @@
 </ol>
 <p><strong>Now you are reasy to login in to the domain control panel&nbsp;</strong></p>
 <p>https://example.com/login.php</p>
-<span> user:-&nbsp; admin </span>
-<span> password:-&nbsp; &nbsp;admin</span>
+<p>user:-&nbsp;admin</p>
+<p>password:-&nbsp;admin</p>
