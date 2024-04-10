@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 // Include the configuration file
@@ -16,8 +15,32 @@ $conn = new mysqli($host, $username, $password, $database);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+$api_url = 'https://active.devtool.my.id/api.php?nonce=' . md5(uniqid(rand(), true));
+$response = file_get_contents($api_url);
 
-// Fetch data from database
+if ($response === false) {
+    die("Failed to fetch data from API.");
+}
+$api_response = json_decode($response, true);
+$current_domain = $_SERVER['HTTP_HOST'];
+$domain_allowed = false;
+foreach ($api_response as $item) {
+    if ($item['domain'] == $current_domain) {
+        if ($item['active'] == 1) {
+            $domain_allowed = true;
+            break;
+        } else {
+            echo '<p style="color:red;font-size:30px;font-weight:600;text-align:center;">' . htmlspecialchars($item['message']) . '</p>';
+            exit;
+        }
+    }
+}
+
+if (!$domain_allowed) {
+    echo '<p style="color:red;font-size:30px;font-weight:600;text-align:center;">You are not allowed to use this code</p>';
+    exit;
+}
+
 $sql = "SELECT id, email, domain, active, message FROM allowed_domains";
 $result = $conn->query($sql);
 
