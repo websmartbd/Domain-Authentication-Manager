@@ -11,6 +11,6 @@
 <li>Put the database ccradintial on <strong>config.php</strong></li>
 </ol>
 <p><strong>Now you are reasy to login in to the domain control panel&nbsp;</strong></p>
-<p>https://example.com/login.php
+<p>https://example.com/login.php</p>
 <span> user:-&nbsp; admin </span>
-<span> password:-&nbsp; &nbsp;admin</span></p>
+<span> password:-&nbsp; &nbsp;admin</span>
