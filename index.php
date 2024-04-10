@@ -104,7 +104,7 @@ if (isset($_GET['logout'])) {
 <body>
 
 <div class="container mt-5">
-  <h2 class="text-center">User Info</h2>
+  <h2 class="text-center">Users List</h2>
   <div class="d-flex justify-content-between mb-3">
     <!-- Add logout button -->
     <a href="?logout=true" class="btn btn-danger">Logout</a>
