@@ -9,6 +9,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     header("Location: index.php");
     exit;
 }
+
 $conn = new mysqli($host, $username, $password, $database);
 
 if ($conn->connect_error) {
@@ -19,9 +20,11 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add'])) {
     $email = $_POST['email'];
     $domain = $_POST['domain'];
+    $active = $_POST['active'];
+    $message = $_POST['message'];
 
     // Insert new data into the database
-    $insert_sql = "INSERT INTO allowed_domains (email, domain) VALUES ('$email', '$domain')";
+    $insert_sql = "INSERT INTO allowed_domains (email, domain, active, message) VALUES ('$email', '$domain', $active, '$message')";
     if ($conn->query($insert_sql) === TRUE) {
         // Redirect to user table page after successful insertion
         header("Location: index.php");
@@ -30,4 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add'])) {
         echo "Error adding record: " . $conn->error;
     }
 }
+
+// Close the connection
+$conn->close();
 ?>
