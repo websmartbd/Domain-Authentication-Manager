@@ -10,15 +10,16 @@
 <li>Import the <strong>database.sql&nbsp;</strong></li>
 <li>Put the database credential on <strong>config.php</strong></li>
 </ol>
+
 <p><strong>Now you are ready to login into the domain control panel&nbsp;</strong></p>
-<p>https://example.com/login.php</p>
-<p>user:-&nbsp;admin</p>
-<p>password:-&nbsp;admin</p>
+```
+https://example.com/login.php
+user:- admin
+password:- admin
+```
 
 
-
-
-# You can use our WordPress theme function code on any Theme
+<p>WordPress users can use our WordPress theme function code on any theme. also, we have a WordPress <a href="https://github.com/websmartbd/Domain-Validator-Plugin" rel="dofollow" >Plugin</a> to validate the authorized domain/<p>
 
 ```
 function check_domain_allowed_theme() {
@@ -26,7 +27,7 @@ function check_domain_allowed_theme() {
     $response = wp_remote_get($api_url);
 
     if (is_wp_error($response)) {
-        return; // If API call fails, do nothing
+        return; // If the API call fails, do nothing
     }
 
     $body = wp_remote_retrieve_body($response);
