@@ -21,7 +21,9 @@
 <p>WordPress users can use our WordPress theme function code on any theme. <b>Note:- If you don't have a good knowledge of PHP code or theme function we recommend to use the Plugin instead of function code </b><p>
 <p> also, we have a WordPress <a href="https://github.com/websmartbd/Domain-Validator-Plugin" rel="dofollow" >Plugin</a> to validate the authorized domain/<p>
 <br>
+    
 ```
+
 function check_domain_allowed_theme() {
     $api_url = 'https://active.devtool.my.id/admin/api.php?nonce=' . md5(uniqid(rand(), true)); // Append a unique query parameter to bypass caching
     $response = wp_remote_get($api_url);
