@@ -18,10 +18,9 @@
 <bt>
 
 
-<p>WordPress users can use our WordPress theme function code on any theme. <b>Note:- If you don't have a good knowledge of PHP code or theme function we recommend to use the Plugin instead of function code </b><p>
-<p> also, we have a WordPress <a href="https://github.com/websmartbd/Domain-Validator-Plugin" rel="dofollow" >Plugin</a> to validate the authorized domain/<p>
-<br>
-    
+<p>WordPress users can use our WordPress theme function code on any theme. also, we have a WordPress <a href="https://github.com/websmartbd/Domain-Validator-Plugin" rel="dofollow" >Plugin</a> to validate the authorized domain/<p>
+<be>
+<p><b>Note:- If you don't have a good knowledge of PHP code or theme function we recommend to use the Plugin instead of function code </b></p>
 ```
 
 function check_domain_allowed_theme() {
