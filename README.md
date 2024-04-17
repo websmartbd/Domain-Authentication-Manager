@@ -25,7 +25,7 @@
 ```
 
 function check_domain_allowed_theme() {
-    $api_url = 'https://active.devtool.my.id/admin/api.php?nonce=' . md5(uniqid(rand(), true)); // Append a unique query parameter to bypass caching
+    $api_url = 'https://example.com/api.php?nonce=' . md5(uniqid(rand(), true)); // Append a unique query parameter to bypass caching
     $response = wp_remote_get($api_url);
 
     if (is_wp_error($response)) {
