@@ -7,6 +7,8 @@
 <li>Clone the repogetory</li>
 <li>uplaod on your server&nbsp;</li>
 <li>create MySql database and user&nbsp;</li>
+<li><a href="https://active.devtool.my.id"><strong>Register</strong></a> Your domain</li>
+<li><a href="https://active.devtool.my.id/checker.php"><strong>Downlaod</strong></a> The Database</li>
 <li>Import the <strong>database.sql&nbsp;</strong></li>
 <li>Put the database credential on <strong>config.php</strong></li>
 </ol>
