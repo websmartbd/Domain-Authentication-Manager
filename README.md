@@ -23,7 +23,7 @@
 
 <p>WordPress users can use our WordPress theme function code on any theme. also, we have a WordPress <a href="https://github.com/websmartbd/Domain-Validator-Plugin" rel="dofollow" >Plugin</a> to validate the authorized domain</p>
 <br>
-<p><b>Note:- If you don't have a good knowledge of PHP code or theme function we recommend to use the Plugin instead of function code </b></p>
+<p><b>Note:- If you don't have a good knowledge of PHP code or theme function we recommend using the Plugin instead of function code </b></p>
 
 ```
 
