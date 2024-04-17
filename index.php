@@ -99,15 +99,16 @@ if (isset($_GET['logout'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Domain Control Panel</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 </head>
 <body>
 
 <div class="container mt-5">
-  <h2 class="text-center">Users List</h2>
+  <h2 class="text-center">User Info</h2>
   <div class="d-flex justify-content-between mb-3">
     <!-- Add logout button -->
     <a href="?logout=true" class="btn btn-danger">Logout</a>
+    <button class="btn btn-success" data-toggle="modal" data-target="#addModal">Add New</button>
   </div>
   <div class="table-responsive">
     <table class="table table-bordered">
@@ -193,9 +194,6 @@ if (isset($_GET['logout'])) {
       </tbody>
     </table>
   </div>
-  <div class="text-center">
-    <button class="btn btn-success" data-toggle="modal" data-target="#addModal">Add New</button>
-  </div>
 </div>
 
 <!-- Add Modal -->
@@ -240,8 +238,8 @@ if (isset($_GET['logout'])) {
 </div>
 
 <!-- Bootstrap JS and jQuery -->
-<script src="js/jquery.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>
