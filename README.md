@@ -1,6 +1,6 @@
 # Domain Authenticator Manager
 
-<p>By this domain authenticator server anyone can add domain authentication on their code, it's very simple and easy to use this domain authenticator server,&nbsp;</p>
+<p> With this domain authenticator server, anyone can add domain authentication to their code, it's very simple and easy to use this domain authenticator server. The primary purpose of this project is to help those freelancers who got cheated by clients after making the website</p>
 <p>&nbsp;</p>
 <p><strong>How to Install ?</strong></p>
 <ol>
