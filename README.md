@@ -2,13 +2,14 @@
 
 <p> With this domain authenticator server, anyone can add domain authentication to their code, it's very simple and easy to use this domain authenticator server. The primary purpose of this project is to help those freelancers who got cheated by clients after making the website</p>
 <p>&nbsp;</p>
+
 <p><strong>How to Install ?</strong></p>
 <ol>
 <li>Clone the repogetory</li>
 <li>uplaod on your server&nbsp;</li>
-<li>create MySql database and user&nbsp;</li>
-<li><a href="https://active.devtool.my.id"><strong>Register</strong></a> Your domain</li>
-<li><a href="https://active.devtool.my.id/checker.php"><strong>Downlaod</strong></a> The Database</li>
+<li><a href="https://active.devtool.my.id"><strong>Register</strong></a> your domain</li>
+<li>Create MySql database and user&nbsp;</li>
+<li><a href="https://active.devtool.my.id/checker.php"><strong>Downlaod</strong></a> the database</li>
 <li>Import the <strong>database.sql&nbsp;</strong></li>
 <li>Put the database credential on <strong>config.php</strong></li>
 </ol>
