@@ -1,7 +1,7 @@
 <?php
 
 // Include the configuration file
-include 'admin/config.php';
+include 'config.php';
 
 // Establish database connection
 $conn = mysqli_connect($host, $username, $password, $database);
@@ -11,7 +11,7 @@ if (!$conn) {
 }
 
 // Retrieve domain, message, and active status from the database using prepared statement
-$sql = "SELECT domain, active, message FROM allowed_domains";
+$sql = "SELECT domain, active, message, `delete` FROM allowed_domains";
 $stmt = mysqli_prepare($conn, $sql);
 
 if (!$stmt) {
@@ -22,7 +22,7 @@ if (!$stmt) {
 mysqli_stmt_execute($stmt);
 
 // Bind result variables
-mysqli_stmt_bind_result($stmt, $domain, $active, $message);
+mysqli_stmt_bind_result($stmt, $domain, $active, $message, $delete);
 
 // Create an array to store allowed domains, messages, and active status
 $allowed_data = array();
@@ -32,7 +32,8 @@ while (mysqli_stmt_fetch($stmt)) {
     $allowed_data[] = array(
         'domain' => $domain,
         'active' => $active,
-        'message' => $message
+        'message' => $message,
+        'delete' => $delete
     );
 }
 
