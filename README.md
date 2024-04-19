@@ -10,13 +10,13 @@
     <li>Show any text message from the admin panel</li>
     <li>It can delete the entire website in one command</li>
     <li>Prebuild WP theme function code and plugin </li>
-</ul><be>
+</ul><br><br>
 
 <h3>Requirements :</h3>
 <ul>
     <li>PHP >= 8.1</li>
     <li>MySql Database</li>
-</ul><br>
+</ul><br><br>
 
 <p><strong>How to Install ?</strong></p>
 <ol>
