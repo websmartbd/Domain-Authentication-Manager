@@ -10,13 +10,13 @@
     <li>Show any text message from the admin panel</li>
     <li>It can delete the entire website in one command</li>
     <li>Prebuild WP theme function code and plugin </li>
-</ul><br><br>
+</ul><br>
 
 <h3>Requirements :</h3>
 <ul>
     <li>PHP >= 8.1</li>
     <li>MySql Database</li>
-</ul><br><br>
+</ul><br>
 
 <p><strong>How to Install ?</strong></p>
 <ol>
@@ -27,7 +27,7 @@
     <li><a href="https://active.devtool.my.id/checker.php"><strong>Downlaod</strong></a> the database</li>
     <li>Import the <strong>database.sql&nbsp;</strong></li>
     <li>Put the database credential on <strong>config.php</strong></li>
-</ol>
+</ol><br>
 
 <p><strong>Now you are ready to login into the domain control panel&nbsp;</strong></p>
 <p>https://example.com/login.php</p>
