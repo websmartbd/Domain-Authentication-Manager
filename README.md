@@ -48,7 +48,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 function is_domain_allowed() {
-    $api_url = 'http://localhost/admin/api.php'; // Replace this with your actual API URL
+    $api_url = 'https://example.com/api.php'; // Replace this with your actual API URL
     $response = file_get_contents($api_url);
     if ($response === false) {
         return false; // Assuming API call failed, disallow domain
