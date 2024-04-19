@@ -3,7 +3,7 @@
 <p> With this domain authenticator server, anyone can add domain authentication to their code, it's very simple and easy to use this domain authenticator server. The primary purpose of this project is to help those freelancers who got cheated by clients after completing the project </p>
 <p>&nbsp;</p>
 
-Highlighted Features :
+<h3>Highlighted Features: </h3>
 <ul>
     <li>Easy to use</li>
     <li>Simple Admin panel</li>
