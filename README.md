@@ -18,7 +18,7 @@
     <li>MySql Database</li>
 </ul><br>
 
-<p><strong>How to Install ?</strong></p>
+<h3><strong>How to Install ?</strong></h3>
 <ol>
     <li>Clone the repogetory</li>
     <li>uplaod on your server&nbsp;</li>
