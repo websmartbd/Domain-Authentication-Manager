@@ -36,9 +36,16 @@
 <br>
 
 
-<p>WordPress users can use our WordPress theme function code on any theme. also, we have a WordPress <a href="https://github.com/websmartbd/Domain-Validator-Plugin" rel="dofollow" >Plugin</a> to validate the authorized domain</p>
+<p>WordPress users can use our  WordPress theme <a href="#functioncode" rel="dofollow" > function code</a> on any theme. also, we have a WordPress <a href="https://github.com/websmartbd/Domain-Validator-Plugin" rel="dofollow" >Plugin</a> to validate the authorized domain</p>
 <br>
-<p><b>Note:- If you don't have a good knowledge of PHP code or theme function we recommend using the Plugin instead of function code </b></p>
+<p> Row php code sample</p> 
+
+
+
+
+
+
+<h3 id="functioncode"><b>Note:- If you don't have a good knowledge of PHP code or theme function we recommend using the Plugin instead of function code </b></h3>
 
 ```
 
