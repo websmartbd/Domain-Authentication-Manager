@@ -6,9 +6,9 @@
 <h3>Highlighted Features: </h3>
 <ul>
     <li>Easy to use</li>
-    <li>Simple Admin panel</li>
-    <li>Show any text message</li>
-    <li>It Can wipe hole website</li>
+    <li>Simple & fast loading Admin panel</li>
+    <li>Show any text message from the admin panel</li>
+    <li>It can delete the entire website in one command</li>
     <li>Prebuild WP theme function code and plugin </li>
 </ul>
 
