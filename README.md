@@ -29,7 +29,7 @@
     <li>Put the database credential on <strong>config.php</strong></li>
 </ol><br>
 
-<p><strong>Now you are ready to login into the domain control panel&nbsp;</strong></p>
+<h3><strong>Now you are ready to login into the domain control panel&nbsp;</strong></h3>
 <p>https://example.com/login.php</p>
 <p>user:- admin</p>
 <p>password:- admin</p>
