@@ -41,7 +41,8 @@ if (!$domain_allowed) {
     exit;
 }
 
-$sql = "SELECT id, email, domain, active, message FROM allowed_domains";
+// Fetch data from database
+$sql = "SELECT id, email, domain, active, message, `delete` FROM allowed_domains";
 $result = $conn->query($sql);
 
 // Handle edit form submission
@@ -49,33 +50,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['edit'])) {
     $id = $_POST['id'];
     $email = $_POST['email'];
     $domain = $_POST['domain'];
-    $active = $_POST['active']; // Get the selected value from the form
+    $active = $_POST['active'];
+    $delete = $_POST['delete']; // Ensure delete status is properly passed
     $message = $_POST['message'];
 
     // Update user data in the database
-    $update_sql = "UPDATE allowed_domains SET email='$email', domain='$domain', active=$active, message='$message' WHERE id=$id";
-    if ($conn->query($update_sql) === TRUE) {
+    $update_sql = "UPDATE allowed_domains SET email=?, domain=?, active=?, `delete`=?, message=? WHERE id=?";
+    $stmt = $conn->prepare($update_sql);
+    $stmt->bind_param("ssissi", $email, $domain, $active, $delete, $message, $id); // Ensure correct binding sequence
+
+    if ($stmt->execute()) {
         // Redirect to user table page after successful update
         header("Location: index.php");
         exit;
     } else {
-        echo "Error updating record: " . $conn->error;
+        echo "Error updating record: " . $stmt->error;
     }
 }
 
 // Handle delete action
 if (isset($_GET['delete'])) {
-    $delete_id = $_GET['delete'];
+  $delete_id = $_GET['delete'];
 
-    // Delete user from the database
-    $delete_sql = "DELETE FROM allowed_domains WHERE id=$delete_id";
-    if ($conn->query($delete_sql) === TRUE) {
-        // Redirect to user table page after successful deletion
-        header("Location: index.php");
-        exit;
-    } else {
-        echo "Error deleting record: " . $conn->error;
-    }
+  // Delete user from the database
+  $delete_sql = "DELETE FROM allowed_domains WHERE id=$delete_id";
+  if ($conn->query($delete_sql) === TRUE) {
+      // Redirect to user table page after successful deletion
+      header("Location: index.php");
+      exit;
+  } else {
+      echo "Error deleting record: " . $conn->error;
+  }
 }
 
 // Logout action
@@ -112,80 +117,89 @@ if (isset($_GET['logout'])) {
   </div>
   <div class="table-responsive">
     <table class="table table-bordered">
-      <thead>
+    <thead>
         <tr>
           <th>ID</th>
           <th>Email</th>
           <th>Domain</th>
           <th>Active</th>
           <th>Message</th>
+          <th>Delete</th> <!-- New column for the delete field -->
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
         <?php
         if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row["id"] . "</td>";
-                echo "<td>" . $row["email"] . "</td>";
-                echo "<td>" . $row["domain"] . "</td>";
-                echo "<td>" . ($row["active"] ? "Yes" : "No") . "</td>"; // Display "Yes" or "No" based on the value of "active"
-                echo "<td>" . $row["message"] . "</td>";
-                echo "<td>
-                        <div class='dropdown'>
-                          <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                            Actions
-                          </button>
-                          <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
-                            <a class='dropdown-item' href='#' data-toggle='modal' data-target='#editModal{$row['id']}'>Edit</a>
-                            <a class='dropdown-item' href='?delete=" . $row["id"] . "'>Delete</a>
-                          </div>
-                        </div>
-                      </td>";
-                echo "</tr>";
+          while ($row = $result->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>" . $row["id"] . "</td>";
+            echo "<td>" . $row["email"] . "</td>";
+            echo "<td>" . $row["domain"] . "</td>";
+            echo "<td>" . ($row["active"] ? "Yes" : "No") . "</td>";
+            echo "<td>" . $row["message"] . "</td>";
+            echo "<td>" . ($row["delete"] == 'yes' ? "Yes" : "No") . "</td>"; // Display "Yes" or "No" based on the value of "delete"
+            echo "<td>
+                    <div class='dropdown'>
+                      <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                        Actions
+                      </button>
+                      <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+                        <a class='dropdown-item' href='#' data-toggle='modal' data-target='#editModal{$row['id']}'>Edit</a>
+                        <a class='dropdown-item' href='?delete=" . $row["id"] . "'>Delete</a>
+                      </div>
+                    </div>
+                  </td>";
+            echo "</tr>";
 
-                // Edit Modal (similar to your original code)
-                echo "<div class='modal fade' id='editModal{$row['id']}' tabindex='-1' role='dialog' aria-labelledby='editModalLabel{$row['id']}' aria-hidden='true'>";
-                echo "<div class='modal-dialog' role='document'>";
-                echo "<div class='modal-content'>";
-                echo "<div class='modal-header'>";
-                echo "<h5 class='modal-title' id='editModalLabel{$row['id']}'>Edit Domain</h5>";
-                echo "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>";
-                echo "<span aria-hidden='true'>&times;</span>";
-                echo "</button>";
-                echo "</div>";
-                echo "<div class='modal-body'>";
-                echo "<form method='POST'>";
-                echo "<input type='hidden' name='id' value='" . $row["id"] . "'>";
-                echo "<div class='form-group'>";
-                echo "<label>Email:</label>";
-                echo "<input type='text' name='email' value='" . $row["email"] . "' class='form-control'>";
-                echo "</div>";
-                echo "<div class='form-group'>";
-                echo "<label>Domain:</label>";
-                echo "<input type='text' name='domain' value='" . $row["domain"] . "' class='form-control'>";
-                echo "</div>";
-                echo "<div class='form-group'>";
-                echo "<label>Active:</label>";
-                echo "<select name='active' class='form-control'>";
-                echo "<option value='1'" . ($row["active"] == 1 ? " selected" : "") . ">Yes</option>";
-                echo "<option value='0'" . ($row["active"] == 0 ? " selected" : "") . ">No</option>";
-                echo "</select>";
-                echo "</div>";
-                echo "<div class='form-group'>";
-                echo "<label>Message:</label>";
-                echo "<input type='text' name='message' value='" . $row["message"] . "' class='form-control'>";
-                echo "</div>";
-                echo "</div>";
-                echo "<div class='modal-footer'>";
-                echo "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>";
-                echo "<button type='submit' name='edit' class='btn btn-primary'>Save changes</button>";
-                echo "</form>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
+            // Edit Modal (similar to your original code)
+            echo "<div class='modal fade' id='editModal{$row['id']}' tabindex='-1' role='dialog' aria-labelledby='editModalLabel{$row['id']}' aria-hidden='true'>";
+            echo "<div class='modal-dialog' role='document'>";
+            echo "<div class='modal-content'>";
+            echo "<div class='modal-header'>";
+            echo "<h5 class='modal-title' id='editModalLabel{$row['id']}'>Edit Domain</h5>";
+            echo "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>";
+            echo "<span aria-hidden='true'>&times;</span>";
+            echo "</button>";
+            echo "</div>";
+            echo "<div class='modal-body'>";
+            echo "<form method='POST'>";
+            echo "<input type='hidden' name='id' value='" . $row["id"] . "'>";
+            echo "<div class='form-group'>";
+            echo "<label>Email:</label>";
+            echo "<input type='text' name='email' value='" . $row["email"] . "' class='form-control'>";
+            echo "</div>";
+            echo "<div class='form-group'>";
+            echo "<label>Domain:</label>";
+            echo "<input type='text' name='domain' value='" . $row["domain"] . "' class='form-control'>";
+            echo "</div>";
+            echo "<div class='form-group'>";
+            echo "<label>Active:</label>";
+            echo "<select name='active' class='form-control'>";
+            echo "<option value='1'" . ($row["active"] == 1 ? " selected" : "") . ">Yes</option>";
+            echo "<option value='0'" . ($row["active"] == 0 ? " selected" : "") . ">No</option>";
+            echo "</select>";
+            echo "</div>";
+            echo "<div class='form-group'>";
+            echo "<label>Delete:</label>";
+            echo "<select name='delete' class='form-control'>";
+            echo "<option value='yes'" . ($row["delete"] == 'yes' ? " selected" : "") . ">Yes</option>";
+            echo "<option value='no'" . ($row["delete"] == 'no' ? " selected" : "") . ">No</option>";
+            echo "</select>";
+            echo "</div>";
+            echo "<div class='form-group'>";
+            echo "<label>Message:</label>";
+            echo "<input type='text' name='message' value='" . $row["message"] . "' class='form-control'>";
+            echo "</div>";
+            echo "</div>";
+            echo "<div class='modal-footer'>";
+            echo "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>";
+            echo "<button type='submit' name='edit' class='btn btn-primary'>Save changes</button>";
+            echo "</form>";
+            echo "</div>";
+            echo "</div>";
+            echo "</div>";
+            echo "</div>";
             }
         } else {
             echo "<tr><td colspan='6'>No data available</td></tr>";
