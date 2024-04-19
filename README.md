@@ -3,15 +3,24 @@
 <p> With this domain authenticator server, anyone can add domain authentication to their code, it's very simple and easy to use this domain authenticator server. The primary purpose of this project is to help those freelancers who got cheated by clients after completing the project </p>
 <p>&nbsp;</p>
 
+Highlighted Features :
+<ul>
+    <li>Easy to use</li>
+    <li>Simple Admin panel</li>
+    <li>Show any text message</li>
+    <li>It Can wipe hole website</li>
+    <li>Prebuild WP theme function code and plugin </li>
+</ul>
+
 <p><strong>How to Install ?</strong></p>
 <ol>
-<li>Clone the repogetory</li>
-<li>uplaod on your server&nbsp;</li>
-<li><a href="https://active.devtool.my.id"><strong>Register</strong></a> your domain</li>
-<li>Create MySql database and user&nbsp;</li>
-<li><a href="https://active.devtool.my.id/checker.php"><strong>Downlaod</strong></a> the database</li>
-<li>Import the <strong>database.sql&nbsp;</strong></li>
-<li>Put the database credential on <strong>config.php</strong></li>
+    <li>Clone the repogetory</li>
+    <li>uplaod on your server&nbsp;</li>
+    <li><a href="https://active.devtool.my.id"><strong>Register</strong></a> your domain</li>
+    <li>Create MySql database and user&nbsp;</li>
+    <li><a href="https://active.devtool.my.id/checker.php"><strong>Downlaod</strong></a> the database</li>
+    <li>Import the <strong>database.sql&nbsp;</strong></li>
+    <li>Put the database credential on <strong>config.php</strong></li>
 </ol>
 
 <p><strong>Now you are ready to login into the domain control panel&nbsp;</strong></p>
