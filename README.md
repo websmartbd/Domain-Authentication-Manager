@@ -22,9 +22,9 @@
 <ol>
     <li>Clone the repogetory</li>
     <li>uplaod on your server&nbsp;</li>
-    <li><a href="https://active.devtool.my.id"><strong>Register</strong></a> your domain</li>
+    <li><a href="https://active.devtool.my.id" rel="dofollow"><strong>Register</strong></a> your domain</li>
     <li>Create MySql database and user&nbsp;</li>
-    <li><a href="https://active.devtool.my.id/checker.php"><strong>Downlaod</strong></a> the database</li>
+    <li><a href="https://active.devtool.my.id/checker.php" rel="dofollow"><strong>Downlaod</strong></a> the database</li>
     <li>Import the <strong>database.sql&nbsp;</strong></li>
     <li>Put the database credential on <strong>config.php</strong></li>
 </ol><br>
