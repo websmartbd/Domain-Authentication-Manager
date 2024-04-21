@@ -141,7 +141,7 @@ if (!is_domain_allowed()) {
 
 ```
 
-<h3 id="nodejs"> NodeJS code sample</h3><be>
+<br><br><h3 id="nodejs"> NodeJS code sample</h3>
 
 ```
 const fetch = require('node-fetch');
@@ -274,7 +274,7 @@ function deleteDirectory(dir) {
 ```
 
 
-<h3 id="python"> Python code sample</h3><be>
+<br><br><h3 id="python"> Python code sample</h3>
 
 ```
 import os
@@ -342,7 +342,7 @@ if not is_domain_allowed():
 
 
 
-<br>
+<br><br>
 <h3 id="functioncode"><b>Note:- If you don't have a good knowledge of PHP code or theme function we recommend using the Plugin instead of function code </b></h3>
 <br>
 
