@@ -45,8 +45,8 @@
     <li><a href="#python"> Python </a></li>
 
 </ol>
-<br>
-<h3 id="php"> Row php code sample</h3><br>
+<br><br><br>
+<h3 id="php"> Row php code sample</h3>
 
 ```
 <?php
