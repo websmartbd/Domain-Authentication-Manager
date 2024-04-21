@@ -344,7 +344,6 @@ if not is_domain_allowed():
 
 <br><br>
 <h3 id="functioncode"><b>Note:- If you don't have a good knowledge of PHP code or theme function we recommend using the Plugin instead of function code </b></h3>
-<br>
 
 ```
 
