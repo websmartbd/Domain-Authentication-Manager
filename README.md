@@ -35,7 +35,6 @@
 <p>password:- admin</p>
 <br>
 
-
 <p>WordPress users can use our  WordPress theme <a href="#functioncode" rel="dofollow" > function code</a> on any theme. also, we have a WordPress <a href="https://github.com/websmartbd/Domain-Validator-Plugin" rel="dofollow" >Plugin</a> to validate the authorized domain</p>
 <br>
 <h3>Different programing language code sample</h3>
@@ -273,7 +272,6 @@ function deleteDirectory(dir) {
 
 ```
 
-
 <br><br><h3 id="python"> Python code sample</h3>
 
 ```
@@ -338,9 +336,6 @@ if not is_domain_allowed():
 
 
 ```
-
-
-
 
 <br><br>
 <h3 id="functioncode"><b>Note:- If you don't have a good knowledge of PHP code or theme function we recommend using the Plugin instead of function code </b></h3>
