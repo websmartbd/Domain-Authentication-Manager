@@ -38,7 +38,15 @@
 
 <p>WordPress users can use our  WordPress theme <a href="#functioncode" rel="dofollow" > function code</a> on any theme. also, we have a WordPress <a href="https://github.com/websmartbd/Domain-Validator-Plugin" rel="dofollow" >Plugin</a> to validate the authorized domain</p>
 <br>
-<h3> Row php code sample</h3><br>
+<h3>Different programing language code sample</h3>
+<ol>
+    <li><a href="#php"> PHP </a></li>
+    <li><a href="#nodejs"> NodeJs </a></li>
+    <li><a href="#python"> Python </a></li>
+
+</ol>
+<br>
+<h3 id="php"> Row php code sample</h3><br>
 
 ```
 <?php
@@ -133,7 +141,7 @@ if (!is_domain_allowed()) {
 
 ```
 
-<h3> NodeJS code sample</h3><be>
+<h3 id="nodejs"> NodeJS code sample</h3><be>
 
 ```
 const fetch = require('node-fetch');
@@ -266,7 +274,7 @@ function deleteDirectory(dir) {
 ```
 
 
-<h3> Python code sample</h3><be>
+<h3 id="python"> Python code sample</h3><be>
 
 ```
 import os
