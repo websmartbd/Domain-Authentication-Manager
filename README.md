@@ -36,12 +36,7 @@
 <br>
 
 <p>WordPress users can use our  WordPress theme <a href="#functioncode" rel="dofollow" > function code</a> on any theme. also, we have a WordPress <a href="https://github.com/websmartbd/Domain-Validator-Plugin" rel="dofollow" >Plugin</a> to validate the authorized domain</p>
-<br>
-<h3>Different programing language code sample</h3>
-<ol>
-    <li><a href="#php"> PHP </a></li>
-    <li><a href="#functioncode"> function code</a></li>
-</ol>
+
 <br><br><br>
 <h3 id="php"> Row php code sample</h3>
 
