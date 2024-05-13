@@ -104,7 +104,7 @@ if (isset($_GET['logout'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Domain Control Panel</title>
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
 
@@ -252,8 +252,8 @@ if (isset($_GET['logout'])) {
 </div>
 
 <!-- Bootstrap JS and jQuery -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
