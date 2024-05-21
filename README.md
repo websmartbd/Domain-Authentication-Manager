@@ -21,10 +21,9 @@
 ## Video Demonstration
 
 
+<video src="https://www.dropbox.com/scl/fi/u247wxv4hf7o35vvg7zpi/Liscens.mp4?rlkey=jwful1zua6t4xtpou7ot234y6&st=a6x60duy&dl=1" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px; min-height: 200px" >
 
-
-https://github.com/websmartbd/Domain-Authentication-Manager/assets/166507813/c2d33932-75f9-4642-ad70-2797d1c6cf41
-
+  </video>
 
 
 
