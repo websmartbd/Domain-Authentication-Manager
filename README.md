@@ -20,7 +20,9 @@
 
 ## Video Demonstration
 
-[Watch the video](https://www.youtube.com/watch?v=i81xwPath5k)
+[Watch On YouTube](https://www.youtube.com/watch?v=i81xwPath5k)
+
+[Watch On Facebook](https://fb.watch/scrvpZr-cd/)
 
 
 
